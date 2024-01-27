@@ -20,9 +20,8 @@ const navigateToService = (path) => {
         </div>
 
         <JumbotronComponent title="Contatore" description="conta il numero dei click" imageCard="luna.png" onClick={() => navigateToService('/button-counter')} />
-        <JumbotronComponent title="Streamyard" description="" onClick={() => navigateToService('/streamyard')} />
-        <JumbotronComponent title="YouTube" description="" onClick={() => navigateToService('/youtube')} />
-        <JumbotronComponent title="Dacast" description="" onClick={() => navigateToService('/dacast')} />
+        <JumbotronComponent title="Cerca Libri" description="cerca i libri che ti servono" onClick={() => navigateToService('/book-search')} />
+
         </div>
     );
 }

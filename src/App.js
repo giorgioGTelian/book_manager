@@ -2,6 +2,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage.jsx';
+import BookSearchPage from './features/BookSearchPage.jsx';
 import ButtonCounter from './components/ButtonCounter.jsx';
 
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/button-counter" element={<ButtonCounter />} />
+        <Route path="/book-search" element={<BookSearchPage />} />
       </Routes>
     </Router>
   </div>
