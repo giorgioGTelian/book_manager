@@ -4,9 +4,18 @@ import "./Navbar.css";
 import logoImg from "../../images/logo.png";
 import {HiOutlineMenuAlt3} from "react-icons/hi";
 
+
+
+
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const handleNavbar = () => setToggleMenu(!toggleMenu);
+
+  const [count, setCount] = useState(0);
+
+  const handleButtonClick = () => {
+      setCount(count + 1);
+  };
 
   return (
     <nav className='navbar' id = "navbar">
@@ -26,10 +35,10 @@ const Navbar = () => {
         <div className={toggleMenu ? "navbar-collapse show-navbar-collapse" : "navbar-collapse"}>
           <ul className = "navbar-nav">
             <li className='nav-item'>
-              <Link to = "book" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Home</Link>
+            <button className="custom-button" onClick={handleButtonClick}>Cliccami </button>
             </li>
             <li className='nav-item'>
-              <Link to = "about" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>about</Link>
+              <span className="count-badge">{count}</span>
             </li>
           </ul>
         </div>
