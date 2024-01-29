@@ -10,17 +10,28 @@ import BookList from "./components/BookList/BookList";
 import BookDetails from "./components/BookDetails/BookDetails";
 
 
+// Configure routes for redux
+import HomeRedux from './redux/screens/home'; 
+import Book from './redux/screens/book';
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router'
+import store, { history } from './configureStore';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AppProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path = "/" element = {<Home />}>
-          <Route path = "book" element = {<BookList />} />
-          <Route path = "/book/:id" element = {<BookDetails />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </AppProvider>
+  <Provider store={store}>
+    <AppProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path = "/" element = {<Home />}>
+            <Route path = "book" element = {<BookList />} />
+            <Route path = "/book/:id" element = {<BookDetails />} />
+            <Route path = "/Home-redux" element = {<HomeRedux />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AppProvider>
+  </Provider>
 );

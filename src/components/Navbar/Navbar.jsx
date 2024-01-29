@@ -37,6 +37,9 @@ const Navbar = () => {
             <li className='nav-item'>
               <span className="count-badge">{count}</span>
             </li>
+            <li className='nav-item'>
+              <Link to = "/Home-redux" className='nav-link'>Redux home</Link> 
+            </li>
           </ul>
         </div>
       </div>
