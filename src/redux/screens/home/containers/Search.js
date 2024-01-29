@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getBooks } from '../actions'
 import debounce from 'lodash/debounce'
+import './search.css'
 
 const Search = ({ getBooks, query }) => {
 
