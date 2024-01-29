@@ -1,9 +1,26 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { useCallback } from 'react';
+import { ReactReduxContext } from 'react-redux';
 const URL = "https://openlibrary.org/search.json?title=";
 const AppContext = React.createContext(); // Creating a React Context for global state management
 
-// AppProvider is a component that provides global state to its children components
+//use redux to check states and dispatch actions
+const {store} = useContext(ReactReduxContext);
+const {dispatch} = store;
+const action = {
+    type: 'SET_SEARCH_TERM',
+    payload: 'the lost world'
+}
+dispatch(action);
+console.log(store.getState());
+/**
+ * AppProvider component that provides global state to its children.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {ReactNode} props.children - The child components.
+ * @returns {JSX.Element} The JSX element representing the AppProvider component.
+ */
 const AppProvider = ({children}) => {
     const [searchTerm, setSearchTerm] = useState("the lost world");
     const [books, setBooks] = useState([]);
