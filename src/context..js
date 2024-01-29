@@ -4,15 +4,6 @@ import { ReactReduxContext } from 'react-redux';
 const URL = "https://openlibrary.org/search.json?title=";
 const AppContext = React.createContext(); // Creating a React Context for global state management
 
-//use redux to check states and dispatch actions
-const {store} = useContext(ReactReduxContext);
-const {dispatch} = store;
-const action = {
-    type: 'SET_SEARCH_TERM',
-    payload: 'the lost world'
-}
-dispatch(action);
-console.log(store.getState());
 /**
  * AppProvider component that provides global state to its children.
  *
@@ -80,9 +71,11 @@ const AppProvider = ({children}) => {
     )
 }
 
+
 // Custom hook for easy access to the global context
 export const useGlobalContext = () => {
     return useContext(AppContext);
 }
 // Exporting AppContext and AppProvider for use in other parts of the application
 export {AppContext, AppProvider};
+
