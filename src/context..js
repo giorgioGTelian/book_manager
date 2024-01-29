@@ -1,14 +1,15 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { useCallback } from 'react';
 const URL = "https://openlibrary.org/search.json?title=";
-const AppContext = React.createContext();
+const AppContext = React.createContext(); // Creating a React Context for global state management
 
+// AppProvider is a component that provides global state to its children components
 const AppProvider = ({children}) => {
     const [searchTerm, setSearchTerm] = useState("the lost world");
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [resultTitle, setResultTitle] = useState("");
-
+   // fetchBooks is a memoized function to fetch books data from the API
     const fetchBooks = useCallback(async() => {
         setLoading(true);
         try{
@@ -19,7 +20,7 @@ const AppProvider = ({children}) => {
             if(docs){
                 const newBooks = docs.slice(0, 20).map((bookSingle) => {
                     const {key, author_name, cover_i, edition_count, first_publish_year, title} = bookSingle;
-
+             // Returning a new object with the necessary book details
                     return {
                         id: key,
                         author: author_name,
@@ -46,12 +47,13 @@ const AppProvider = ({children}) => {
             console.log(error);
             setLoading(false);
         }
-    }, [searchTerm]);
+    }, [searchTerm]); // The function is re-created when searchTerm changes
 
+ // useEffect hook to call fetchBooks whenever searchTerm changes
     useEffect(() => {
         fetchBooks();
     }, [searchTerm, fetchBooks]);
-
+    // Returning the context provider with the global state
     return (
         <AppContext.Provider value = {{
             loading, books, setSearchTerm, resultTitle, setResultTitle,
@@ -61,8 +63,9 @@ const AppProvider = ({children}) => {
     )
 }
 
+// Custom hook for easy access to the global context
 export const useGlobalContext = () => {
     return useContext(AppContext);
 }
-
+// Exporting AppContext and AppProvider for use in other parts of the application
 export {AppContext, AppProvider};
