@@ -9,7 +9,6 @@ const Home = () => {
         <Header />
         <Outlet /> {/* Outlet component renders the current route's child routes */}
     </main>
-    </main>
   )
 }
 
