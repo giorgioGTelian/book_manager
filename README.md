@@ -1,6 +1,6 @@
 # ciao luca leggi qui prima di tutto
 il progetto contiene due progetti
-il primo, principale è nella cartella src/components che include i file root come context..js ed è l'applicazione che vedi appena entri nella [Produzione su vercel](https://book-manager-m3rude780-giorgiogtelian.vercel.app/)
+il primo, principale è nella cartella src/components che include i file root come context..js ed è l'applicazione che vedi appena entri nella [Produzione su vercel](https://book-manager-m3rude780-giorgiogtelian.vercel.app/).  <br>
 la seconda è dentro src/redux dove vedrai l'applicazione con redux molto più ordinata e divisa in classi, purtroppo alcune dipendenze di redux non è più supportato da vercel quindi per testare l'applicazione dovrai partire da locale.
 se non funziona ti consiglio di usare --force
 
